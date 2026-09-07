@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiveWeatherTracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app" id="app">
+
+  <div class="masthead">
+    <div class="wordmark">Live<span>Weather</span>Tracker</div>
+    <div class="clock" id="clock"></div>
+  </div>
+
+  <div class="search-row">
+    <input id="cityInput" type="text" placeholder="Search a city" autocomplete="off">
+    <button id="searchBtn">LOCATE →</button>
+  </div>
+  <div class="status" id="status"></div>
+
+  <div class="hero" id="hero">
+    <div class="hero-top">
+      <div>
+        <p class="place" id="placeName"></p>
+        <p class="place-sub" id="placeSub"></p>
+      </div>
+    </div>
+    <div class="temp-row">
+      <div class="temp-big" id="tempBig"></div>
+      <svg class="cond-icon" id="condIcon" viewBox="0 0 48 48" fill="none"></svg>
+      <div class="cond-block">
+        <div class="cond-label" id="condLabel"></div>
+        <div class="cond-range" id="condRange"></div>
+      </div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val" id="mFeels"></div><div class="metric-label">FEELS LIKE</div></div>
+      <div class="metric"><div class="metric-val" id="mHumidity"></div><div class="metric-label">HUMIDITY</div></div>
+      <div class="metric"><div class="metric-val" id="mWind"></div><div class="metric-label">WIND</div></div>
+    </div>
+  </div>
+
+  <div id="belowHero" style="display:none;">
+    <p class="section-label">NEXT 24 HOURS</p>
+    <div class="hourly-wrap">
+      <svg class="hourly-chart" id="hourlyChart" viewBox="0 0 900 140" preserveAspectRatio="xMinYMin meet"></svg>
+    </div>
+
+    <p class="section-label">SEVEN DAY OUTLOOK</p>
+    <div class="daily-list" id="dailyList"></div>
+
+    <p class="footer-note">Data from Open-Meteo. Temperatures in °C, wind in km/h.</p>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

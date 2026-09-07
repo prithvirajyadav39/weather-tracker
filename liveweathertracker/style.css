@@ -1,0 +1,199 @@
+:root{
+  --ink:#101B2D;
+  --panel:#16223A;
+  --paper:#F6F3EC;
+  --mist:#93A4C2;
+  --mist-dim:#5E6E8E;
+  --amber:#E7A94C;
+  --storm:#7C9AE8;
+  --line: rgba(255,255,255,0.12);
+  --line-soft: rgba(255,255,255,0.06);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(124,154,232,0.16), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 0%, rgba(231,169,76,0.10), transparent 55%),
+    var(--ink);
+  min-height:100vh;
+  font-family:'Inter', sans-serif;
+  color:var(--paper);
+  display:flex;
+  justify-content:center;
+  padding:56px 20px 80px;
+}
+.app{
+  width:100%;
+  max-width:600px;
+}
+.masthead{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:34px;
+}
+.wordmark{
+  font-family:'Fraunces', serif;
+  font-weight:500;
+  font-size:22px;
+  letter-spacing:0.01em;
+}
+.wordmark span{ color: var(--amber); font-style:italic; }
+.clock{
+  font-size:13px;
+  color:var(--mist-dim);
+}
+
+.search-row{
+  display:flex;
+  gap:0;
+  border-bottom:1px solid var(--line);
+  padding-bottom:14px;
+  margin-bottom:6px;
+}
+.search-row input{
+  flex:1;
+  background:transparent;
+  border:none;
+  outline:none;
+  color:var(--paper);
+  font-family:'Inter', sans-serif;
+  font-size:16px;
+  padding:6px 2px;
+}
+.search-row input::placeholder{ color:var(--mist-dim); }
+.search-row button{
+  background:none;
+  border:none;
+  color:var(--mist);
+  font-family:'Inter', sans-serif;
+  font-size:13px;
+  cursor:pointer;
+  padding:6px 4px;
+  letter-spacing:0.02em;
+}
+.search-row button:hover{ color:var(--paper); }
+
+.status{
+  min-height:24px;
+  font-size:13px;
+  color:var(--mist-dim);
+  padding:10px 0 0;
+}
+.status.error{ color:#E28B7A; }
+
+.hero{
+  display:none;
+  padding:40px 0 30px;
+  border-bottom:1px solid var(--line);
+}
+.hero.show{ display:block; }
+.hero-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+.place{
+  font-family:'Fraunces', serif;
+  font-weight:500;
+  font-size:26px;
+  margin:0 0 4px;
+}
+.place-sub{
+  font-size:13px;
+  color:var(--mist-dim);
+}
+.temp-row{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  margin-top:18px;
+}
+.temp-big{
+  font-family:'Fraunces', serif;
+  font-weight:300;
+  font-size:108px;
+  line-height:0.9;
+  letter-spacing:-0.02em;
+}
+.temp-big sup{
+  font-size:44px;
+  font-weight:300;
+  top:-0.5em;
+}
+.cond-icon{ width:64px; height:64px; flex-shrink:0; }
+.cond-block{ display:flex; flex-direction:column; gap:2px; }
+.cond-label{ font-size:16px; }
+.cond-range{ font-size:13px; color:var(--mist-dim); }
+
+.metrics{
+  display:flex;
+  gap:36px;
+  margin-top:26px;
+}
+.metric{ display:flex; flex-direction:column; gap:3px; }
+.metric-val{ font-size:16px; }
+.metric-label{ font-size:11.5px; color:var(--mist-dim); letter-spacing:0.03em; }
+
+.section-label{
+  font-size:12px;
+  color:var(--mist-dim);
+  letter-spacing:0.04em;
+  padding:22px 0 4px;
+}
+
+.hourly-wrap{
+  overflow-x:auto;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--line);
+  scrollbar-width:none;
+}
+.hourly-wrap::-webkit-scrollbar{ display:none; }
+.hourly-chart{ display:block; }
+
+.daily-list{ padding:6px 0 0; }
+.day-row{
+  display:grid;
+  grid-template-columns: 76px 28px 1fr 74px;
+  align-items:center;
+  gap:14px;
+  padding:11px 0;
+  border-bottom:1px solid var(--line-soft);
+  font-size:14px;
+}
+.day-row:last-child{ border-bottom:none; }
+.day-name{ color:var(--paper); }
+.day-icon{ width:20px; height:20px; color:var(--mist); }
+.range-track{
+  position:relative;
+  height:3px;
+  background:var(--line);
+  border-radius:2px;
+}
+.range-fill{
+  position:absolute;
+  top:0; bottom:0;
+  border-radius:2px;
+  background:linear-gradient(90deg, var(--storm), var(--amber));
+}
+.day-minmax{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  font-variant-numeric:tabular-nums;
+}
+.day-minmax .lo{ color:var(--mist-dim); }
+
+.footer-note{
+  padding-top:30px;
+  font-size:12px;
+  color:var(--mist-dim);
+  line-height:1.6;
+}
+
+@media (max-width:420px){
+  .temp-big{ font-size:80px; }
+  .metrics{ gap:22px; flex-wrap:wrap; }
+  .day-row{ grid-template-columns: 60px 24px 1fr 64px; gap:10px; font-size:13px; }
+}
