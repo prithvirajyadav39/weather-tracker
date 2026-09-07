@@ -2,6 +2,10 @@
 
 A self-contained weather app. No backend, no API key, no build step — it calls Open-Meteo's free geocoding and forecast APIs directly from the browser.
 
+## 🌐 Live Demo
+
+Check out the live application here: [Live Weather Tracker](https://weather-tracker-blond-ten.vercel.app/)
+
 ## Structure
 
 ```
